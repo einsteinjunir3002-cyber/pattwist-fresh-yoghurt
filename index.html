@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Pattwist Fresh Yoghurt | Pure, Creamy & Naturally Refreshing</title>
   <meta name="description" content="Order freshly made, chilled, creamy strawberry and vanilla yogurt from Pattwist Fresh Yoghurt for only GH₵ 10 per bottle. Order now via WhatsApp!">
 
@@ -43,49 +43,57 @@
 <body class="bg-[#FCFBF9] text-slate-800 antialiased selection:bg-rose-500 selection:text-white">
 
   <!-- TOP ANNOUNCEMENT BAR -->
-  <header class="bg-gradient-to-r from-rose-600 via-rose-500 to-amber-500 text-white text-xs sm:text-sm font-medium py-2 px-4 shadow-sm relative z-50">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-300 live-pulse"></span>
-        <span>✨ Fresh batch chilled & ready today! <strong>Only GH₵ 10</strong> per bottle</span>
+  <header class="bg-gradient-to-r from-rose-600 via-rose-500 to-amber-500 text-white text-[11px] sm:text-xs font-semibold py-2 px-3 sm:px-6 shadow-sm relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Mobile & Desktop Centered / Left Announcement -->
+      <div class="flex items-center gap-2 mx-auto sm:mx-0 text-center">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-300 live-pulse flex-shrink-0"></span>
+        <span class="tracking-wide">
+          ✨ Fresh batch chilled & ready today • <strong class="underline decoration-white/40 font-bold">GH₵ 10 / bottle</strong>
+        </span>
       </div>
-      <div class="flex items-center gap-4 text-xs">
-        <a href="/track" class="hover:underline flex items-center gap-1 font-bold bg-white/20 px-2 py-0.5 rounded-md">
+
+      <!-- Desktop Right Links -->
+      <div class="hidden sm:flex items-center gap-4 text-xs font-bold">
+        <a href="/track" class="hover:underline flex items-center gap-1 bg-white/20 px-2.5 py-0.5 rounded-md transition-colors">
           <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
           <span>Track Order</span>
         </a>
-        <a href="tel:0504875191" class="hover:underline flex items-center gap-1 font-semibold">
+        <a href="tel:0504875191" class="hover:underline flex items-center gap-1">
           <i data-lucide="phone" class="w-3.5 h-3.5"></i>
           <span>Call: 0504875191</span>
         </a>
-        <span class="opacity-60 hidden sm:inline">|</span>
-        <a href="https://wa.me/233578330745" target="_blank" class="hover:underline hidden sm:flex items-center gap-1 font-semibold">
+        <span class="opacity-40">|</span>
+        <a href="https://wa.me/233578330745" target="_blank" class="hover:underline flex items-center gap-1">
           <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
           <span>WhatsApp: 0578330745</span>
         </a>
       </div>
+
     </div>
   </header>
 
   <!-- STICKY NAVBAR -->
   <nav class="sticky top-0 z-40 glass-nav transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
+      
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-500 to-amber-400 flex items-center justify-center text-white shadow-md shadow-rose-500/20 group-hover:scale-105 transition-transform">
-          <i data-lucide="milk" class="w-6 h-6"></i>
+      <a href="#" class="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
+        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-rose-500 to-amber-400 flex items-center justify-center text-white shadow-md shadow-rose-500/20 group-hover:scale-105 transition-transform flex-shrink-0">
+          <i data-lucide="milk" class="w-5 h-5 sm:w-6 sm:h-6"></i>
         </div>
-        <div>
+        <div class="flex flex-col">
           <div class="flex items-center gap-1.5">
-            <span class="text-2xl font-black brand-font tracking-tight text-slate-900 group-hover:text-rose-600 transition-colors">Pattwist</span>
-            <span class="text-xs uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-rose-100 text-rose-700">Fresh</span>
+            <span class="text-xl sm:text-2xl font-black brand-font tracking-tight text-slate-900 group-hover:text-rose-600 transition-colors">Pattwist</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-rose-100 text-rose-700">Fresh</span>
           </div>
-          <p class="text-[11px] font-semibold text-slate-500 tracking-wide uppercase -mt-0.5">Creamy Yoghurt</p>
+          <p class="text-[10px] font-semibold text-slate-400 tracking-wider uppercase -mt-0.5">Creamy Yoghurt</p>
         </div>
       </a>
 
       <!-- Desktop Nav Links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+      <div class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
         <a href="#flavours" class="hover:text-rose-600 transition-colors">Flavours</a>
         <a href="#why-pattwist" class="hover:text-rose-600 transition-colors">Why Pattwist</a>
         <a href="#video-reel" class="hover:text-rose-600 transition-colors">Freshness Reel</a>
@@ -97,93 +105,96 @@
         <a href="#faq" class="hover:text-rose-600 transition-colors">FAQ</a>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="flex items-center gap-3">
-        <!-- Direct Call -->
-        <a href="tel:0504875191" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all">
-          <i data-lucide="phone-call" class="w-4 h-4 text-emerald-600"></i>
-          <span>0504875191</span>
+      <!-- Action Buttons (Balanced for Mobile & Desktop) -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+        
+        <!-- Track Order Button (Mobile / Desktop) -->
+        <a href="/track" class="p-2 sm:px-3 sm:py-2 rounded-xl text-slate-600 hover:text-rose-600 hover:bg-rose-50/60 font-bold text-xs flex items-center gap-1 transition-colors" title="Track Your Order">
+          <i data-lucide="map-pin" class="w-4 h-4 text-rose-500"></i>
+          <span class="hidden md:inline">Track</span>
         </a>
 
         <!-- Cart Trigger Button -->
-        <button onclick="openCart()" class="relative p-2.5 rounded-xl bg-white border border-slate-200 hover:border-rose-300 hover:bg-rose-50/50 text-slate-700 hover:text-rose-600 shadow-sm transition-all flex items-center justify-center">
-          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-          <span class="cart-count-badge hidden absolute -top-1.5 -right-1.5 bg-rose-600 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+        <button onclick="openCart()" class="relative p-2 sm:p-2.5 rounded-xl bg-white border border-slate-200/90 hover:border-rose-300 hover:bg-rose-50/50 text-slate-700 hover:text-rose-600 shadow-sm transition-all flex items-center justify-center flex-shrink-0" title="Shopping Cart">
+          <i data-lucide="shopping-bag" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          <span class="cart-count-badge hidden absolute -top-1 -right-1 bg-rose-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-md">0</span>
         </button>
 
         <!-- Quick WhatsApp Button -->
-        <a href="https://wa.me/233578330745?text=Hello%20Pattwist!%20I%20would%20like%20to%20order%20some%20fresh%20yoghurt." target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/25 transition-all hover:scale-105 active:scale-95">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>Order on WhatsApp</span>
+        <a href="https://wa.me/233578330745?text=Hello%20Pattwist!%20I%20would%20like%20to%20order%20some%20fresh%20yoghurt." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm shadow-emerald-600/20 transition-all hover:scale-105 active:scale-95 whitespace-nowrap flex-shrink-0">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+          <span>Order</span><span class="hidden sm:inline"> on WhatsApp</span>
         </a>
+
       </div>
+
     </div>
   </nav>
 
   <!-- HERO SECTION -->
-  <section class="relative pt-8 pb-16 md:pt-14 md:pb-24 overflow-hidden gradient-hero-bg">
+  <section class="relative pt-6 pb-12 sm:pt-12 sm:pb-20 md:pt-16 md:pb-24 overflow-hidden gradient-hero-bg">
     <!-- Ambient Blur Glows -->
-    <div class="blob-glow w-96 h-96 bg-rose-200/50 top-10 left-10 rounded-full"></div>
-    <div class="blob-glow w-96 h-96 bg-amber-200/50 bottom-10 right-10 rounded-full"></div>
+    <div class="blob-glow w-80 h-80 sm:w-96 sm:h-96 bg-rose-200/50 top-10 left-10 rounded-full"></div>
+    <div class="blob-glow w-80 h-80 sm:w-96 sm:h-96 bg-amber-200/50 bottom-10 right-10 rounded-full"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         <!-- Left Column: Copy -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left">
           
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100/90 border border-rose-200/80 text-rose-700 text-xs sm:text-sm font-bold">
             <span class="w-2 h-2 rounded-full bg-rose-500"></span>
             Handcrafted with 100% Love & Freshness
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight sm:leading-[1.1] tracking-tight">
             Pure. Creamy. <br>
             <span class="bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600 bg-clip-text text-transparent">
               Unforgettable
             </span> Freshness.
           </h1>
 
-          <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+          <p class="text-sm sm:text-base lg:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
             Taste the authentic goodness of handcrafted Ghanaian yogurt. Made extra thick, velvety smooth, and naturally rich. Available in luscious <strong>Strawberry</strong> and comforting <strong>Vanilla</strong> for just <span class="font-extrabold text-slate-900 underline decoration-rose-400 decoration-2">GH₵ 10</span>.
           </p>
 
           <!-- Price & Features Pill Grid -->
-          <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 pt-2">
-            <div class="bg-white/80 backdrop-blur-sm p-3 rounded-2xl border border-rose-100 text-center shadow-sm">
-              <span class="block text-xl font-black text-rose-600">GH₵ 10</span>
-              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Per Bottle</span>
+          <div class="grid grid-cols-3 gap-2 sm:gap-3.5 max-w-lg mx-auto lg:mx-0 pt-2">
+            <div class="bg-white/90 backdrop-blur-sm py-2.5 px-2 sm:p-3.5 rounded-2xl border border-rose-100/80 text-center shadow-sm">
+              <span class="block text-lg sm:text-xl font-black text-rose-600 leading-tight">GH₵ 10</span>
+              <span class="text-[10px] sm:text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mt-0.5">Per Bottle</span>
             </div>
-            <div class="bg-white/80 backdrop-blur-sm p-3 rounded-2xl border border-amber-100 text-center shadow-sm">
-              <span class="block text-xl font-black text-amber-600">2 Flavours</span>
-              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Strawberry & Vanilla</span>
+            <div class="bg-white/90 backdrop-blur-sm py-2.5 px-2 sm:p-3.5 rounded-2xl border border-amber-100/80 text-center shadow-sm">
+              <span class="block text-lg sm:text-xl font-black text-amber-600 leading-tight">2 Flavours</span>
+              <span class="text-[10px] sm:text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mt-0.5">Strawberry & Vanilla</span>
             </div>
-            <div class="bg-white/80 backdrop-blur-sm p-3 rounded-2xl border border-emerald-100 text-center shadow-sm">
-              <span class="block text-xl font-black text-emerald-600">100%</span>
-              <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Fresh & Chilled</span>
+            <div class="bg-white/90 backdrop-blur-sm py-2.5 px-2 sm:p-3.5 rounded-2xl border border-emerald-100/80 text-center shadow-sm">
+              <span class="block text-lg sm:text-xl font-black text-emerald-600 leading-tight">100%</span>
+              <span class="text-[10px] sm:text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mt-0.5">Fresh & Chilled</span>
             </div>
           </div>
 
-          <!-- CTAs -->
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-            <button onclick="openCart()" class="px-7 py-3.5 rounded-2xl font-bold text-white bg-rose-600 hover:bg-rose-700 shadow-xl shadow-rose-600/30 flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+          <!-- CTAs (Balanced Touch Targets) -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-4 pt-3 w-full sm:w-auto">
+            <button onclick="openCart()" class="w-full sm:w-auto justify-center px-7 py-3.5 rounded-2xl font-bold text-white bg-rose-600 hover:bg-rose-700 shadow-xl shadow-rose-600/30 flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
               <i data-lucide="shopping-bag" class="w-5 h-5"></i>
               <span>Start Order (GH₵ 10)</span>
             </button>
 
-            <a href="/track" class="px-7 py-3.5 rounded-2xl font-bold text-slate-800 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm flex items-center gap-2 transition-all hover:border-rose-300">
+            <a href="/track" class="w-full sm:w-auto justify-center px-6 py-3.5 rounded-2xl font-bold text-slate-800 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm flex items-center gap-2 transition-all hover:border-rose-300">
               <i data-lucide="compass" class="w-5 h-5 text-emerald-600"></i>
               <span>Track Your Order</span>
             </a>
 
-            <a href="tel:0504875191" class="px-5 py-3.5 rounded-2xl font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/60 flex items-center gap-2 transition-all">
+            <a href="tel:0504875191" class="w-full sm:w-auto justify-center px-5 py-3 rounded-2xl font-semibold text-slate-600 hover:text-slate-900 hover:bg-white/60 flex items-center gap-2 transition-all">
               <i data-lucide="phone" class="w-4 h-4 text-rose-500"></i>
               <span>0504875191</span>
             </a>
           </div>
 
           <!-- Trust Badges -->
-          <div class="pt-4 flex items-center justify-center lg:justify-start gap-6 text-xs text-slate-500 font-medium">
+          <div class="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-slate-500 font-medium">
             <div class="flex items-center gap-1.5">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
               <span>Fresh Daily Batches</span>
@@ -201,11 +212,11 @@
         </div>
 
         <!-- Right Column: Visual Showcase Card -->
-        <div class="lg:col-span-5 relative">
+        <div class="lg:col-span-5 relative mt-4 lg:mt-0">
           
-          <div class="relative mx-auto max-w-md">
+          <div class="relative mx-auto max-w-sm sm:max-w-md">
             
-            <div class="relative rounded-3xl overflow-hidden bg-white p-3 shadow-2xl border border-rose-100 group">
+            <div class="relative rounded-3xl overflow-hidden bg-white p-2.5 sm:p-3 shadow-2xl border border-rose-100 group">
               <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-100">
                 <img 
                   src="assets/images/hero-combo-bottles.jpeg" 
@@ -214,13 +225,13 @@
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
                 
-                <div class="absolute bottom-4 left-4 right-4 text-white">
+                <div class="absolute bottom-3.5 left-3.5 right-3.5 text-white">
                   <div class="flex items-center justify-between">
                     <div>
-                      <p class="text-xs uppercase font-extrabold tracking-wider text-rose-300">Fresh Stock Available</p>
-                      <h3 class="text-lg font-bold">Strawberry & Vanilla Collection</h3>
+                      <p class="text-[10px] sm:text-xs uppercase font-extrabold tracking-wider text-rose-300">Fresh Stock Available</p>
+                      <h3 class="text-base sm:text-lg font-bold leading-tight">Strawberry & Vanilla Collection</h3>
                     </div>
-                    <span class="text-xl font-black bg-rose-600/90 backdrop-blur-md px-3 py-1 rounded-xl shadow-lg">
+                    <span class="text-lg sm:text-xl font-black bg-rose-600/90 backdrop-blur-md px-2.5 sm:px-3 py-1 rounded-xl shadow-lg">
                       GH₵ 10
                     </span>
                   </div>
@@ -228,23 +239,24 @@
               </div>
             </div>
 
-            <div class="absolute -top-5 -left-5 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-rose-100 flex items-center gap-3 floating-badge z-20">
-              <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
-                <i data-lucide="heart" class="w-5 h-5 fill-rose-500 text-rose-500"></i>
+            <!-- Responsive Floating Badges (Guaranteed to stay within mobile viewport) -->
+            <div class="absolute -top-3 left-2 sm:-top-5 sm:-left-5 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3.5 shadow-xl border border-rose-100 flex items-center gap-2 sm:gap-3 floating-badge z-20">
+              <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold flex-shrink-0">
+                <i data-lucide="heart" class="w-4 h-4 sm:w-5 sm:h-5 fill-rose-500 text-rose-500"></i>
               </div>
               <div>
-                <p class="text-xs font-bold text-slate-800">100% Wholesome</p>
-                <p class="text-[11px] text-slate-500 font-medium">No harsh chemicals</p>
+                <p class="text-xs font-bold text-slate-800 leading-tight">100% Wholesome</p>
+                <p class="text-[10px] sm:text-[11px] text-slate-500 font-medium">No harsh chemicals</p>
               </div>
             </div>
 
-            <div class="absolute -bottom-5 -right-5 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-amber-100 flex items-center gap-3 floating-badge-delayed z-20">
-              <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
-                <i data-lucide="snowflake" class="w-5 h-5 text-sky-500"></i>
+            <div class="absolute -bottom-3 right-2 sm:-bottom-5 sm:-right-5 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3.5 shadow-xl border border-amber-100 flex items-center gap-2 sm:gap-3 floating-badge-delayed z-20">
+              <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold flex-shrink-0">
+                <i data-lucide="snowflake" class="w-4 h-4 sm:w-5 sm:h-5 text-sky-500"></i>
               </div>
               <div>
-                <p class="text-xs font-bold text-slate-800">Served Ice Cold</p>
-                <p class="text-[11px] text-slate-500 font-medium">Ultimate refreshing chill</p>
+                <p class="text-xs font-bold text-slate-800 leading-tight">Served Ice Cold</p>
+                <p class="text-[10px] sm:text-[11px] text-slate-500 font-medium">Ultimate refreshing chill</p>
               </div>
             </div>
 
@@ -257,40 +269,40 @@
   </section>
 
   <!-- KEY HIGHLIGHTS BAR -->
-  <section class="border-y border-slate-200/80 bg-white py-8 relative z-10">
+  <section class="border-y border-slate-200/80 bg-white py-6 sm:py-8 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-center">
         
-        <div class="flex flex-col items-center p-3">
-          <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mb-3">
-            <i data-lucide="droplet" class="w-6 h-6"></i>
+        <div class="flex flex-col items-center p-3 sm:p-4 rounded-2xl bg-slate-50/60 border border-slate-100/80">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mb-2.5">
+            <i data-lucide="droplet" class="w-5 h-5 sm:w-6 sm:h-6"></i>
           </div>
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base">Rich & Creamy</h4>
-          <p class="text-xs text-slate-500 mt-1 max-w-[200px]">Thick signature texture that satisfies every craving.</p>
+          <h4 class="font-bold text-slate-900 text-xs sm:text-sm md:text-base">Rich & Creamy</h4>
+          <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 max-w-[180px]">Thick signature texture that satisfies every craving.</p>
         </div>
 
-        <div class="flex flex-col items-center p-3">
-          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-3">
-            <i data-lucide="sparkles" class="w-6 h-6"></i>
+        <div class="flex flex-col items-center p-3 sm:p-4 rounded-2xl bg-slate-50/60 border border-slate-100/80">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-2.5">
+            <i data-lucide="sparkles" class="w-5 h-5 sm:w-6 sm:h-6"></i>
           </div>
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base">Natural Flavours</h4>
-          <p class="text-xs text-slate-500 mt-1 max-w-[200px]">Authentic sweet strawberry & fragrant vanilla essence.</p>
+          <h4 class="font-bold text-slate-900 text-xs sm:text-sm md:text-base">Natural Flavours</h4>
+          <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 max-w-[180px]">Sweet strawberry & fragrant natural vanilla.</p>
         </div>
 
-        <div class="flex flex-col items-center p-3">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-3">
-            <i data-lucide="coins" class="w-6 h-6"></i>
+        <div class="flex flex-col items-center p-3 sm:p-4 rounded-2xl bg-slate-50/60 border border-slate-100/80">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-2.5">
+            <i data-lucide="coins" class="w-5 h-5 sm:w-6 sm:h-6"></i>
           </div>
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base">Only GH₵ 10</h4>
-          <p class="text-xs text-slate-500 mt-1 max-w-[200px]">Pocket-friendly luxury quality at an unbeatable price.</p>
+          <h4 class="font-bold text-slate-900 text-xs sm:text-sm md:text-base">Only GH₵ 10</h4>
+          <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 max-w-[180px]">Pocket-friendly luxury quality at an unbeatable price.</p>
         </div>
 
-        <div class="flex flex-col items-center p-3">
-          <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center mb-3">
-            <i data-lucide="zap" class="w-6 h-6"></i>
+        <div class="flex flex-col items-center p-3 sm:p-4 rounded-2xl bg-slate-50/60 border border-slate-100/80">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center mb-2.5">
+            <i data-lucide="zap" class="w-5 h-5 sm:w-6 sm:h-6"></i>
           </div>
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base">Instant Order</h4>
-          <p class="text-xs text-slate-500 mt-1 max-w-[200px]">Fast WhatsApp & phone response with doorstep delivery.</p>
+          <h4 class="font-bold text-slate-900 text-xs sm:text-sm md:text-base">Instant Order</h4>
+          <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 max-w-[180px]">Fast WhatsApp response with doorstep delivery.</p>
         </div>
 
       </div>
@@ -298,18 +310,18 @@
   </section>
 
   <!-- FLAVOURS & PRODUCTS SECTION -->
-  <section id="flavours" class="py-16 md:py-24 bg-[#FAF9F5]">
+  <section id="flavours" class="py-12 sm:py-20 md:py-24 bg-[#FAF9F5]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-2xl mx-auto mb-14">
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
         <span class="text-xs uppercase font-extrabold tracking-widest text-rose-600 px-3 py-1 bg-rose-100/70 rounded-full">Our Signature Menu</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 tracking-tight">Choose Your Favourite Bliss</h2>
-        <p class="text-slate-600 text-sm sm:text-base mt-2">Every single bottle is filled with fresh, rich, fermented yogurt goodness. Add to cart or tap to order directly on WhatsApp.</p>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-2.5 tracking-tight">Choose Your Favourite Bliss</h2>
+        <p class="text-slate-600 text-xs sm:text-base mt-2">Every single bottle is filled with fresh, rich, fermented yogurt goodness. Add to cart or tap to order directly on WhatsApp.</p>
       </div>
 
       <!-- Products Grid (Dynamic from Database with fallback) -->
-      <div id="dynamic-products-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div id="dynamic-products-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         
         <!-- Fallback 1: Strawberry -->
         <div class="glass-card rounded-3xl overflow-hidden card-shadow card-shadow-hover flex flex-col border border-rose-100">
@@ -317,11 +329,11 @@
             <img src="assets/images/strawberry-trio.jpeg" alt="Strawberry Fresh Yoghurt Bottles" class="w-full h-full object-cover object-center" />
             <span class="absolute top-4 left-4 bg-rose-500 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">🍓 Bestseller</span>
             <div class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-md text-right border border-rose-100">
-              <span class="text-xs text-slate-500 block leading-tight">Price</span>
+              <span class="text-[10px] text-slate-500 block leading-tight font-bold uppercase">Price</span>
               <span class="text-lg font-black text-rose-600 leading-tight">GH₵ 10.00</span>
             </div>
           </div>
-          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
             <div>
               <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Strawberry</span>
               <h3 class="text-xl font-black text-slate-900 mt-1">Strawberry Fresh Yoghurt</h3>
@@ -337,11 +349,11 @@
             <img src="assets/images/vanilla-trio.jpeg" alt="Vanilla Fresh Yoghurt Bottles" class="w-full h-full object-cover object-center" />
             <span class="absolute top-4 left-4 bg-amber-500 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">🍦 Classic Comfort</span>
             <div class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-md text-right border border-amber-100">
-              <span class="text-xs text-slate-500 block leading-tight">Price</span>
+              <span class="text-[10px] text-slate-500 block leading-tight font-bold uppercase">Price</span>
               <span class="text-lg font-black text-amber-600 leading-tight">GH₵ 10.00</span>
             </div>
           </div>
-          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
             <div>
               <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Vanilla</span>
               <h3 class="text-xl font-black text-slate-900 mt-1">Vanilla Fresh Yoghurt</h3>
@@ -357,11 +369,11 @@
             <img src="assets/images/hero-combo-bottles.jpeg" alt="Pattwist 6-Pack Combo" class="w-full h-full object-cover object-center" />
             <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">🎁 6-Pack Variety</span>
             <div class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-md text-right border border-emerald-100">
-              <span class="text-xs text-slate-500 block leading-tight">6 Bottles</span>
+              <span class="text-[10px] text-slate-500 block leading-tight font-bold uppercase">6 Bottles</span>
               <span class="text-lg font-black text-slate-900 leading-tight">GH₵ 60.00</span>
             </div>
           </div>
-          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
             <div>
               <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Party Pack</span>
               <h3 class="text-xl font-black text-slate-900 mt-1">Pattwist 6-Pack Combo</h3>
@@ -374,22 +386,22 @@
       </div>
 
       <!-- Custom Volume / Bulk Order Banner -->
-      <div class="mt-12 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="mt-10 sm:mt-12 bg-white rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6">
         <div class="flex items-center gap-4 text-center md:text-left">
-          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex-shrink-0 flex items-center justify-center">
-            <i data-lucide="cake" class="w-7 h-7"></i>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-700 flex-shrink-0 flex items-center justify-center">
+            <i data-lucide="cake" class="w-6 h-6 sm:w-7 sm:h-7"></i>
           </div>
           <div>
-            <h4 class="text-lg font-bold text-slate-900">Hosting an Event, Birthday, or Office Meeting?</h4>
-            <p class="text-sm text-slate-600">We take bulk orders for weddings, church groups, school functions, and celebrations with special chilled cooler handling!</p>
+            <h4 class="text-base sm:text-lg font-bold text-slate-900">Hosting an Event, Birthday, or Office Meeting?</h4>
+            <p class="text-xs sm:text-sm text-slate-600 mt-0.5">We take bulk orders for celebrations with special chilled cooler handling!</p>
           </div>
         </div>
-        <div class="flex-shrink-0 flex items-center gap-3">
-          <a href="https://wa.me/233578330745?text=Hello%20Pattwist!%20I%20would%20like%20to%20inquire%20about%20a%20bulk%20order%20for%20an%20event." target="_blank" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold flex items-center gap-2 shadow-md">
+        <div class="flex-shrink-0 flex items-center gap-2.5 w-full md:w-auto">
+          <a href="https://wa.me/233578330745?text=Hello%20Pattwist!%20I%20would%20like%20to%20inquire%20about%20a%20bulk%20order%20for%20an%20event." target="_blank" class="flex-1 md:flex-initial px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-md">
             <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>Chat for Bulk Order</span>
+            <span>Chat Bulk Order</span>
           </a>
-          <a href="tel:0504875191" class="px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold flex items-center gap-2">
+          <a href="tel:0504875191" class="px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5">
             <i data-lucide="phone" class="w-4 h-4"></i>
             <span>Call</span>
           </a>
@@ -400,14 +412,14 @@
   </section>
 
   <!-- FRESHNESS REEL / VIDEO SHOWCASE SECTION -->
-  <section id="video-reel" class="py-16 md:py-24 bg-white border-t border-slate-100 overflow-hidden">
+  <section id="video-reel" class="py-12 sm:py-20 md:py-24 bg-white border-t border-slate-100 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         <!-- Video Player Column -->
         <div class="lg:col-span-6 order-2 lg:order-1">
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-950 aspect-[9/16] sm:aspect-[4/3] max-w-md mx-auto group">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-950 aspect-[9/16] sm:aspect-[4/3] max-w-sm sm:max-w-md mx-auto group">
             <video 
               id="showcase-video" 
               class="w-full h-full object-cover" 
@@ -429,48 +441,48 @@
         </div>
 
         <!-- Copy Column -->
-        <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+        <div class="lg:col-span-6 order-1 lg:order-2 space-y-4 sm:space-y-6">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider">
             <i data-lucide="camera" class="w-3.5 h-3.5"></i>
             Real Product Showcase
           </div>
 
-          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
             See the Rich Consistency of Every Single Bottle
           </h2>
 
-          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+          <p class="text-slate-600 leading-relaxed text-xs sm:text-base">
             We don't take shortcuts. Every bottle of Pattwist Fresh Yoghurt is crafted using authentic yogurt culture fermentation, yielding a velvety, spoonable thickness that drinks like pure heaven.
           </p>
 
-          <div class="space-y-4 pt-2">
-            <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-rose-50/60 border border-rose-100">
-              <div class="w-10 h-10 rounded-xl bg-rose-500 text-white flex items-center justify-center flex-shrink-0 font-bold">1</div>
+          <div class="space-y-3 pt-2">
+            <div class="flex items-start gap-3.5 p-3 rounded-2xl bg-rose-50/60 border border-rose-100">
+              <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-rose-500 text-white flex items-center justify-center flex-shrink-0 font-bold text-xs sm:text-sm">1</div>
               <div>
-                <h4 class="font-bold text-slate-900 text-sm">Always Chilled, Never Watered Down</h4>
-                <p class="text-xs text-slate-600 mt-0.5">Experience genuine dairy body that stays thick and creamy down to the last drop.</p>
+                <h4 class="font-bold text-slate-900 text-xs sm:text-sm">Always Chilled, Never Watered Down</h4>
+                <p class="text-[11px] sm:text-xs text-slate-600 mt-0.5">Experience genuine dairy body that stays thick and creamy down to the last drop.</p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-amber-50/60 border border-amber-100">
-              <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center flex-shrink-0 font-bold">2</div>
+            <div class="flex items-start gap-3.5 p-3 rounded-2xl bg-amber-50/60 border border-amber-100">
+              <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center flex-shrink-0 font-bold text-xs sm:text-sm">2</div>
               <div>
-                <h4 class="font-bold text-slate-900 text-sm">Freshly Bottled in Hygienic Conditions</h4>
-                <p class="text-xs text-slate-600 mt-0.5">Carefully sealed, cleanly labeled, and sanitized for your health and peace of mind.</p>
+                <h4 class="font-bold text-slate-900 text-xs sm:text-sm">Freshly Bottled in Hygienic Conditions</h4>
+                <p class="text-[11px] sm:text-xs text-slate-600 mt-0.5">Carefully sealed, cleanly labeled, and sanitized for your health and peace of mind.</p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-100">
-              <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center flex-shrink-0 font-bold">3</div>
+            <div class="flex items-start gap-3.5 p-3 rounded-2xl bg-emerald-50/60 border border-emerald-100">
+              <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center flex-shrink-0 font-bold text-xs sm:text-sm">3</div>
               <div>
-                <h4 class="font-bold text-slate-900 text-sm">Instant Refreshment on a Sunny Day</h4>
-                <p class="text-xs text-slate-600 mt-0.5">Keep a bottle in your bag or fridge for that revitalizing mid-day boost.</p>
+                <h4 class="font-bold text-slate-900 text-xs sm:text-sm">Instant Refreshment on a Sunny Day</h4>
+                <p class="text-[11px] sm:text-xs text-slate-600 mt-0.5">Keep a bottle in your bag or fridge for that revitalizing mid-day boost.</p>
               </div>
             </div>
           </div>
 
           <div class="pt-2">
-            <button onclick="openCart()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm bg-slate-900 hover:bg-slate-800 text-white shadow-md transition-all">
+            <button onclick="openCart()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm bg-slate-900 hover:bg-slate-800 text-white shadow-md transition-all">
               <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-400"></i>
               <span>Order Chilled Bottles Now</span>
             </button>
@@ -484,43 +496,43 @@
   </section>
 
   <!-- WHY PATTWIST SECTION -->
-  <section id="why-pattwist" class="py-16 md:py-24 bg-[#FAF9F5] border-t border-slate-200/70">
+  <section id="why-pattwist" class="py-12 sm:py-20 md:py-24 bg-[#FAF9F5] border-t border-slate-200/70">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
         <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-600 px-3 py-1 bg-emerald-100/70 rounded-full">Our Difference</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 tracking-tight">Why Everyone Loves Pattwist</h2>
-        <p class="text-slate-600 text-sm sm:text-base mt-2">Crafted with passion in Ghana, bringing you genuine homemade goodness you can trust.</p>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-2.5 tracking-tight">Why Everyone Loves Pattwist</h2>
+        <p class="text-slate-600 text-xs sm:text-base mt-2">Crafted with passion in Ghana, bringing you genuine homemade goodness you can trust.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         
-        <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm relative overflow-hidden group hover:border-rose-200 transition-all">
-          <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <i data-lucide="award" class="w-7 h-7"></i>
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm relative overflow-hidden group hover:border-rose-200 transition-all">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="award" class="w-6 h-6 sm:w-7 sm:h-7"></i>
           </div>
-          <h3 class="text-xl font-black text-slate-900 mb-2">100% Quality Ingredients</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
+          <h3 class="text-lg sm:text-xl font-black text-slate-900 mb-2">100% Quality Ingredients</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
             We use carefully selected milk and wholesome ingredients without cutting corners. No excess chalky stabilizers or artificial chemical aftertastes.
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm relative overflow-hidden group hover:border-amber-200 transition-all">
-          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <i data-lucide="shield-check" class="w-7 h-7"></i>
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm relative overflow-hidden group hover:border-amber-200 transition-all">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="shield-check" class="w-6 h-6 sm:w-7 sm:h-7"></i>
           </div>
-          <h3 class="text-xl font-black text-slate-900 mb-2">Hygienically Prepared</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
+          <h3 class="text-lg sm:text-xl font-black text-slate-900 mb-2">Hygienically Prepared</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Cleanliness is our top priority. Every bottle is filled in a thoroughly sanitized environment and sealed tightly to retain crisp freshness.
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm relative overflow-hidden group hover:border-emerald-200 transition-all">
-          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <i data-lucide="smile" class="w-7 h-7"></i>
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm relative overflow-hidden group hover:border-emerald-200 transition-all">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="smile" class="w-6 h-6 sm:w-7 sm:h-7"></i>
           </div>
-          <h3 class="text-xl font-black text-slate-900 mb-2">Only GH₵ 10 Per Bottle</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
+          <h3 class="text-lg sm:text-xl font-black text-slate-900 mb-2">Only GH₵ 10 Per Bottle</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
             We believe everyday refreshment should be accessible to all students, families, workers, and foodies without burning a hole in your pocket.
           </p>
         </div>
@@ -531,32 +543,32 @@
   </section>
 
   <!-- HOW TO ORDER (3 SIMPLE STEPS) -->
-  <section id="how-to-order" class="py-16 md:py-24 bg-white border-t border-slate-100">
+  <section id="how-to-order" class="py-12 sm:py-20 md:py-24 bg-white border-t border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-2xl mx-auto mb-14">
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
         <span class="text-xs uppercase font-extrabold tracking-widest text-sky-600 px-3 py-1 bg-sky-100/70 rounded-full">Easy As 1-2-3</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 tracking-tight">How to Get Pattwist Delivered</h2>
-        <p class="text-slate-600 text-sm sm:text-base mt-2">Fast, friendly, and hassle-free ordering directly connected to our database and WhatsApp dispatcher.</p>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-2.5 tracking-tight">How to Get Pattwist Delivered</h2>
+        <p class="text-slate-600 text-xs sm:text-base mt-2">Fast, friendly, and hassle-free ordering directly connected to our database and WhatsApp dispatcher.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 relative">
         
-        <div class="text-center p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
-          <div class="w-14 h-14 rounded-2xl bg-rose-600 text-white font-black text-xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-rose-600/30">1</div>
-          <h3 class="text-lg font-bold text-slate-900 mb-2">Pick Your Flavours</h3>
+        <div class="text-center p-5 sm:p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-rose-600 text-white font-black text-lg sm:text-xl flex items-center justify-center mx-auto mb-3.5 shadow-lg shadow-rose-600/30">1</div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1.5">Pick Your Flavours</h3>
           <p class="text-xs sm:text-sm text-slate-600">Choose your quantity of Strawberry, Vanilla, or 6-pack combo directly on this page.</p>
         </div>
 
-        <div class="text-center p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
-          <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white font-black text-xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-600/30">2</div>
-          <h3 class="text-lg font-bold text-slate-900 mb-2">Database Order & WhatsApp</h3>
+        <div class="text-center p-5 sm:p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-600 text-white font-black text-lg sm:text-xl flex items-center justify-center mx-auto mb-3.5 shadow-lg shadow-emerald-600/30">2</div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1.5">Database Order & WhatsApp</h3>
           <p class="text-xs sm:text-sm text-slate-600">Your order gets recorded in our database with a unique tracking code (e.g. #PAT-8291).</p>
         </div>
 
-        <div class="text-center p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
-          <div class="w-14 h-14 rounded-2xl bg-amber-500 text-white font-black text-xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-amber-500/30">3</div>
-          <h3 class="text-lg font-bold text-slate-900 mb-2">Track & Enjoy Delivery</h3>
+        <div class="text-center p-5 sm:p-6 bg-slate-50 rounded-3xl border border-slate-200/80">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-500 text-white font-black text-lg sm:text-xl flex items-center justify-center mx-auto mb-3.5 shadow-lg shadow-amber-500/30">3</div>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1.5">Track & Enjoy Delivery</h3>
           <p class="text-xs sm:text-sm text-slate-600">Track delivery online, pay conveniently via Mobile Money (MoMo) or cash on delivery!</p>
         </div>
 
@@ -566,23 +578,23 @@
   </section>
 
   <!-- CUSTOMER REVIEWS (Connected to Backend Database) -->
-  <section class="py-16 md:py-24 bg-[#FCFBF9] border-t border-slate-100">
+  <section class="py-12 sm:py-20 md:py-24 bg-[#FCFBF9] border-t border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-3 sm:gap-4">
         <div>
           <span class="text-xs uppercase font-extrabold tracking-widest text-amber-600 px-3 py-1 bg-amber-100/70 rounded-full">Customer Love</span>
-          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 tracking-tight">What Our Customers Say</h2>
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-2 tracking-tight">What Our Customers Say</h2>
           <p class="text-slate-600 text-xs sm:text-sm mt-1">Real feedback stored in our live database.</p>
         </div>
-        <button onclick="openReviewModal()" class="px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-300 text-slate-700 text-xs font-bold flex items-center gap-2 shadow-sm">
+        <button onclick="openReviewModal()" class="w-full sm:w-auto justify-center px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-amber-300 text-slate-700 text-xs font-bold flex items-center gap-2 shadow-sm">
           <i data-lucide="edit-3" class="w-4 h-4 text-amber-500"></i>
           <span>Write a Review</span>
         </button>
       </div>
 
       <!-- Dynamic Reviews from DB -->
-      <div id="dynamic-reviews-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div id="dynamic-reviews-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
         <!-- Rendered by app.js from /api/reviews -->
       </div>
 
@@ -590,52 +602,52 @@
   </section>
 
   <!-- FAQ SECTION -->
-  <section id="faq" class="py-16 md:py-24 bg-white border-t border-slate-100">
+  <section id="faq" class="py-12 sm:py-20 md:py-24 bg-white border-t border-slate-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-xl mx-auto mb-14">
+      <div class="text-center max-w-xl mx-auto mb-10 sm:mb-14">
         <span class="text-xs uppercase font-extrabold tracking-widest text-rose-600 px-3 py-1 bg-rose-100/70 rounded-full">Got Questions?</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 tracking-tight">Frequently Asked Questions</h2>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-2.5 tracking-tight">Frequently Asked Questions</h2>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-3 sm:space-y-4">
         
-        <details class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80 group">
-          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between text-sm sm:text-base">
+        <details class="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200/80 group">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between text-xs sm:text-base">
             <span>How much does each bottle cost?</span>
             <span class="text-rose-600 group-open:rotate-180 transition-transform">▼</span>
           </summary>
-          <p class="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200 leading-relaxed">
+          <p class="text-xs sm:text-sm text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
             Every bottle is priced at only <strong>GH₵ 10.00</strong>. You can mix and match Strawberry and Vanilla as much as you like!
           </p>
         </details>
 
-        <details class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80 group">
-          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between text-sm sm:text-base">
+        <details class="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200/80 group">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between text-xs sm:text-base">
             <span>Can I track my order online?</span>
             <span class="text-rose-600 group-open:rotate-180 transition-transform">▼</span>
           </summary>
-          <p class="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200 leading-relaxed">
+          <p class="text-xs sm:text-sm text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
             Yes! Whenever you place an order, you receive a unique order reference code (e.g. <strong>#PAT-8291</strong>). You can visit the <a href="/track" class="text-rose-600 font-bold underline">Order Tracker</a> at any time to see the live status from chilling to delivery.
           </p>
         </details>
 
-        <details class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80 group">
-          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between text-sm sm:text-base">
+        <details class="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200/80 group">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between text-xs sm:text-base">
             <span>How do I pay for my order?</span>
             <span class="text-rose-600 group-open:rotate-180 transition-transform">▼</span>
           </summary>
-          <p class="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200 leading-relaxed">
+          <p class="text-xs sm:text-sm text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
             We accept all Mobile Money networks (MTN MoMo, Telecel Cash, AT Money) as well as cash on delivery depending on your location.
           </p>
         </details>
 
-        <details class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80 group">
-          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between text-sm sm:text-base">
+        <details class="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200/80 group">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between text-xs sm:text-base">
             <span>Can I order in bulk for an event or party?</span>
             <span class="text-rose-600 group-open:rotate-180 transition-transform">▼</span>
           </summary>
-          <p class="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-200 leading-relaxed">
+          <p class="text-xs sm:text-sm text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
             Yes! We cater for birthday parties, weddings, church meetings, school picnics, and office functions. Just message us on WhatsApp or call us at <strong>0504875191</strong> ahead of time to book your batch.
           </p>
         </details>
@@ -646,30 +658,30 @@
   </section>
 
   <!-- DIRECT ORDER CTA HERO FOOTER -->
-  <section class="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-    <div class="blob-glow w-96 h-96 bg-rose-500/20 top-0 right-0 rounded-full"></div>
-    <div class="blob-glow w-96 h-96 bg-amber-500/10 bottom-0 left-0 rounded-full"></div>
+  <section class="py-12 sm:py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+    <div class="blob-glow w-80 h-80 sm:w-96 sm:h-96 bg-rose-500/20 top-0 right-0 rounded-full"></div>
+    <div class="blob-glow w-80 h-80 sm:w-96 sm:h-96 bg-amber-500/10 bottom-0 left-0 rounded-full"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-4 sm:space-y-6">
       <span class="inline-block px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-bold uppercase tracking-wider">
         Ready for a Refreshing Treat?
       </span>
 
-      <h2 class="text-3xl sm:text-5xl font-black tracking-tight max-w-2xl mx-auto">
+      <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight max-w-2xl mx-auto">
         Your Cold Bottle of Pattwist is Just a Click Away!
       </h2>
 
-      <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
+      <p class="text-slate-300 text-xs sm:text-base max-w-xl mx-auto">
         Order online with instant database confirmation, live tracking, and direct WhatsApp communication.
       </p>
 
-      <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-        <button onclick="openCart()" class="px-8 py-4 rounded-2xl font-black text-white bg-rose-600 hover:bg-rose-500 shadow-xl shadow-rose-600/30 flex items-center gap-3 transition-transform hover:scale-105">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-2">
+        <button onclick="openCart()" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-2xl font-black text-white bg-rose-600 hover:bg-rose-500 shadow-xl shadow-rose-600/30 flex items-center justify-center gap-2.5 transition-transform hover:scale-105">
           <i data-lucide="shopping-bag" class="w-5 h-5"></i>
           <span>Order Now (GH₵ 10)</span>
         </button>
 
-        <a href="/track" class="px-8 py-4 rounded-2xl font-black text-slate-900 bg-white hover:bg-slate-100 shadow-xl flex items-center gap-3 transition-transform hover:scale-105">
+        <a href="/track" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-2xl font-black text-slate-900 bg-white hover:bg-slate-100 shadow-xl flex items-center justify-center gap-2.5 transition-transform hover:scale-105">
           <i data-lucide="map-pin" class="w-5 h-5 text-rose-600"></i>
           <span>Track Existing Order</span>
         </a>
@@ -678,9 +690,9 @@
   </section>
 
   <!-- MAIN FOOTER -->
-  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+  <footer class="bg-slate-950 text-slate-400 py-10 sm:py-12 border-t border-slate-800 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-7 sm:gap-8 mb-8 sm:mb-10">
         
         <div class="space-y-3 md:col-span-2">
           <div class="flex items-center gap-3">
@@ -725,9 +737,9 @@
 
       </div>
 
-      <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+      <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
         <p>&copy; 2026 Pattwist Fresh Yoghurt. All rights reserved.</p>
-        <p>Connected Full-Stack Application (Frontend + Backend + SQLite Database).</p>
+        <p>Simple, clean & inspiring Ghanaian craftsmanship.</p>
       </div>
     </div>
   </footer>
@@ -736,10 +748,10 @@
   <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none transition-all">
     <div id="cart-backdrop" class="fixed inset-0 bg-slate-950/50 backdrop-blur-sm opacity-0 drawer-backdrop"></div>
 
-    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
       <div id="cart-panel" class="w-screen max-w-md bg-[#FCFBF9] shadow-2xl flex flex-col translate-x-full drawer-panel border-l border-slate-200">
         
-        <div class="p-5 border-b border-slate-200/80 bg-white flex items-center justify-between">
+        <div class="p-4 sm:p-5 border-b border-slate-200/80 bg-white flex items-center justify-between">
           <div class="flex items-center gap-2">
             <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
               <i data-lucide="shopping-bag" class="w-4 h-4"></i>
@@ -754,7 +766,7 @@
           </button>
         </div>
 
-        <div class="flex-1 overflow-y-auto p-5 space-y-4">
+        <div class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4">
           
           <div id="cart-empty-state" class="text-center py-12 space-y-3">
             <div class="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
@@ -837,17 +849,17 @@
   <div id="order-success-modal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl text-center space-y-5">
       
-      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
-        <i data-lucide="check" class="w-8 h-8"></i>
+      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+        <i data-lucide="check" class="w-7 h-7 sm:w-8 sm:h-8"></i>
       </div>
 
       <div>
         <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">Order Saved to Database</span>
-        <h3 class="text-2xl font-black text-slate-900 mt-2">Order Confirmed!</h3>
+        <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-2">Order Confirmed!</h3>
         <p class="text-xs text-slate-600 mt-1">Your order has been recorded into our system.</p>
       </div>
 
-      <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+      <div class="p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
         <div class="flex justify-between items-center text-xs">
           <span class="text-slate-500 font-semibold">Order Reference:</span>
           <span id="success-order-code" class="font-black text-rose-600 text-sm">#PAT-0000</span>
@@ -929,14 +941,14 @@
   <a 
     href="https://wa.me/233578330745?text=Hello%20Pattwist!%20I%20would%20like%20to%20order%20some%20fresh%20yoghurt." 
     target="_blank" 
-    class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-700 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 transition-all transform hover:scale-105 active:scale-95 group border-2 border-white"
+    class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 bg-emerald-600 hover:bg-emerald-700 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 transition-all transform hover:scale-105 active:scale-95 group border-2 border-white"
     title="Chat with Pattwist on WhatsApp">
-    <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <i data-lucide="message-circle" class="w-5 h-5 sm:w-6 sm:h-6"></i>
     <span class="hidden sm:inline font-bold text-xs tracking-wide">Order on WhatsApp</span>
   </a>
 
   <!-- TOAST NOTIFICATION -->
-  <div id="toast-notification" class="fixed bottom-6 left-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+  <div id="toast-notification" class="fixed bottom-5 left-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
     <div class="bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-700 text-xs sm:text-sm font-semibold">
       <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
       <span id="toast-message">Added item to cart</span>

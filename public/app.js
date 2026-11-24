@@ -96,7 +96,7 @@ function renderProductsGrid() {
       </div>
 
       <!-- Card Body -->
-      <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+      <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
         <div>
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">${p.flavour}</span>
@@ -448,7 +448,7 @@ function renderReviews(reviews) {
   if (!container) return;
 
   container.innerHTML = reviews.map(r => `
-    <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+    <div class="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
       <div class="space-y-3">
         <div class="flex text-amber-400 gap-1">
           ${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}
