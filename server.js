@@ -12,8 +12,25 @@ const PORT = process.env.PORT || 8080;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '15mb' }));
+app.use(express.urlencoded({ extended: true, limit: '15mb' }));
+
+// Admin Credentials Configuration
+const ADMIN_CONFIG = {
+  username: 'Pattwist_Ekura_Nkwan',
+  password: 'Pat_Loves_Sam',
+  token: 'pat_sec_token_' + Buffer.from('Pattwist_Ekura_Nkwan:Pat_Loves_Sam').toString('base64')
+};
+
+// Admin Authentication Middleware
+function requireAdminAuth(req, res, next) {
+  const authHeader = req.headers.authorization;
+  const token = (authHeader && authHeader.startsWith('Bearer ')) ? authHeader.slice(7) : req.query.token;
+  if (token && token === ADMIN_CONFIG.token) {
+    return next();
+  }
+  return res.status(401).json({ success: false, error: 'Unauthorized: Admin authentication required' });
+}
 
 // Serve static assets from public folder and project root
 app.use(express.static(path.join(__dirname, 'public')));
@@ -36,6 +53,30 @@ function generateOrderCode() {
 }
 
 // -------------------------------------------------------------
+// 0. ADMIN AUTHENTICATION API
+// -------------------------------------------------------------
+app.post('/api/admin/login', (req, res) => {
+  const { username, password } = req.body;
+  if (username === ADMIN_CONFIG.username && password === ADMIN_CONFIG.password) {
+    return res.json({
+      success: true,
+      token: ADMIN_CONFIG.token,
+      username: ADMIN_CONFIG.username
+    });
+  }
+  return res.status(401).json({ success: false, error: 'Invalid username or password' });
+});
+
+app.get('/api/admin/verify-token', (req, res) => {
+  const authHeader = req.headers.authorization;
+  const token = (authHeader && authHeader.startsWith('Bearer ')) ? authHeader.slice(7) : req.query.token;
+  if (token === ADMIN_CONFIG.token) {
+    return res.json({ success: true, valid: true });
+  }
+  return res.status(401).json({ success: false, valid: false });
+});
+
+// -------------------------------------------------------------
 // 1. SETTINGS API
 // -------------------------------------------------------------
 app.get('/api/settings', (req, res) => {
@@ -47,7 +88,7 @@ app.get('/api/settings', (req, res) => {
   }
 });
 
-app.post('/api/settings', (req, res) => {
+app.post('/api/settings', requireAdminAuth, (req, res) => {
   try {
     const { settings } = req.body;
     if (!settings || typeof settings !== 'object') {
@@ -94,7 +135,7 @@ app.get('/api/products/:id', (req, res) => {
   }
 });
 
-app.post('/api/products', (req, res) => {
+app.post('/api/products', requireAdminAuth, (req, res) => {
   try {
     const { name, category, flavour, price, stock, tagline, description, image_url, badge, badge_color } = req.body;
     if (!name || price == null) {
@@ -127,7 +168,7 @@ app.post('/api/products', (req, res) => {
   }
 });
 
-app.put('/api/products/:id', (req, res) => {
+app.put('/api/products/:id', requireAdminAuth, (req, res) => {
   try {
     const { name, category, flavour, price, stock, tagline, description, image_url, badge, badge_color, is_active } = req.body;
     const existing = db.prepare('SELECT * FROM products WHERE id = ?').get(req.params.id);
@@ -162,7 +203,7 @@ app.put('/api/products/:id', (req, res) => {
   }
 });
 
-app.delete('/api/products/:id', (req, res) => {
+app.delete('/api/products/:id', requireAdminAuth, (req, res) => {
   try {
     // Soft delete product by setting is_active = 0
     const stmt = db.prepare('UPDATE products SET is_active = 0 WHERE id = ?');
@@ -333,7 +374,7 @@ app.get('/api/orders/track/:query', (req, res) => {
 });
 
 // Admin: List all orders with filters
-app.get('/api/admin/orders', (req, res) => {
+app.get('/api/admin/orders', requireAdminAuth, (req, res) => {
   try {
     const { status, q } = req.query;
     let sql = 'SELECT * FROM orders WHERE 1=1';
@@ -366,7 +407,7 @@ app.get('/api/admin/orders', (req, res) => {
 });
 
 // Admin: Update Order Status
-app.patch('/api/orders/:id/status', (req, res) => {
+app.patch('/api/orders/:id/status', requireAdminAuth, (req, res) => {
   try {
     const { order_status, payment_status } = req.body;
     const existing = db.prepare('SELECT * FROM orders WHERE id = ?').get(req.params.id);
@@ -455,7 +496,7 @@ app.post('/api/inquiries', (req, res) => {
   }
 });
 
-app.get('/api/admin/inquiries', (req, res) => {
+app.get('/api/admin/inquiries', requireAdminAuth, (req, res) => {
   try {
     const inquiries = db.prepare('SELECT * FROM inquiries ORDER BY id DESC').all();
     res.json({ success: true, inquiries });
@@ -467,7 +508,7 @@ app.get('/api/admin/inquiries', (req, res) => {
 // -------------------------------------------------------------
 // 6. ADMIN ANALYTICS API
 // -------------------------------------------------------------
-app.get('/api/admin/analytics', (req, res) => {
+app.get('/api/admin/analytics', requireAdminAuth, (req, res) => {
   try {
     const revenueRow = db.prepare('SELECT COALESCE(SUM(total_amount), 0) as total_revenue, COUNT(*) as total_orders FROM orders').get();
     const pendingOrders = db.prepare('SELECT COUNT(*) as count FROM orders WHERE order_status IN (\'Received\', \'Preparing\')').get();
@@ -511,7 +552,7 @@ app.get('/api/admin/analytics', (req, res) => {
 // -------------------------------------------------------------
 // 7. DEV/DEMO HELPER: SEED SAMPLE ORDER
 // -------------------------------------------------------------
-app.post('/api/admin/seed-sample-order', (req, res) => {
+app.post('/api/admin/seed-sample-order', requireAdminAuth, (req, res) => {
   try {
     const sampleNames = ['Kofi Mensah', 'Akosua Darko', 'Yaw Boateng', 'Esi Osei', 'Emmanuel Ansah'];
     const sampleLocations = ['East Legon, Near ANC Mall', 'Osu, Oxford Street', 'Spintex Road', 'Airport Residential', 'Tema Community 1'];

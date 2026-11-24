@@ -36,246 +36,328 @@
 </head>
 <body class="text-slate-800 antialiased min-h-screen flex flex-col">
 
-  <!-- TOP HEADER -->
-  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <!-- ADMIN AUTHENTICATION GATE SCREEN (Protected by Username & Password) -->
+  <div id="admin-login-screen" class="fixed inset-0 z-50 bg-slate-900 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 sm:p-8 shadow-2xl text-center space-y-5">
       
-      <div class="flex items-center gap-3">
-        <a href="/" class="flex items-center gap-2 group">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-500 to-amber-400 flex items-center justify-center text-white font-bold shadow-md">
-            <i data-lucide="milk" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <span class="text-lg font-black brand-font text-white">Pattwist</span>
-            <span class="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 ml-1">Admin Ops</span>
-          </div>
-        </a>
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-rose-500 to-amber-400 flex items-center justify-center text-white mx-auto shadow-lg shadow-rose-500/25">
+        <i data-lucide="shield-check" class="w-7 h-7"></i>
       </div>
 
-      <div class="flex items-center gap-1.5 sm:gap-3 text-xs">
-        <a href="/" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 transition-colors" title="View Store">
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-          <span class="hidden sm:inline">Store</span>
-        </a>
-
-        <a href="/track" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 transition-colors" title="Order Tracker">
-          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
-          <span class="hidden sm:inline">Tracker</span>
-        </a>
-
-        <button onclick="seedSampleOrder()" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1.5 shadow-sm transition-all whitespace-nowrap">
-          <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
-          <span>Sample Order</span>
-        </button>
-      </div>
-
-    </div>
-  </header>
-
-  <!-- MAIN CONTAINER -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-    
-    <!-- PAGE TITLE & CONTROLS -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
-        <h1 class="text-2xl sm:text-3xl font-black text-slate-900">Dashboard & Operations</h1>
-        <p class="text-slate-500 text-xs sm:text-sm mt-0.5">Real-time orders, database inventory, and store performance.</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <button onclick="loadAllData()" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold flex items-center gap-2 shadow-sm transition-all">
-          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-slate-500"></i>
-          <span>Refresh Data</span>
-        </button>
-        <button onclick="openNewProductModal()" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold flex items-center gap-2 shadow-md shadow-rose-600/20 transition-all">
-          <i data-lucide="plus" class="w-4 h-4"></i>
-          <span>Add New Product</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- METRICS KPI CARDS -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      
-      <!-- Total Revenue -->
-      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
-        <div>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Sales</span>
-          <h3 id="stat-revenue" class="text-2xl font-black text-slate-900 mt-1">GH₵ 0.00</h3>
-          <span class="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 mt-0.5">
-            <i data-lucide="trending-up" class="w-3 h-3"></i> Active Database Orders
-          </span>
-        </div>
-        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-          <i data-lucide="coins" class="w-6 h-6"></i>
-        </div>
+        <h2 class="text-2xl font-black text-slate-900 brand-font">Pattwist Admin</h2>
+        <p class="text-xs text-slate-500 mt-1">Enter your credentials to access store operations and database.</p>
       </div>
 
-      <!-- Total Orders -->
-      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
-        <div>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Orders</span>
-          <h3 id="stat-orders" class="text-2xl font-black text-slate-900 mt-1">0</h3>
-          <span class="text-[11px] text-slate-500 font-semibold mt-0.5 block">Lifetime orders</span>
-        </div>
-        <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
-          <i data-lucide="shopping-bag" class="w-6 h-6"></i>
-        </div>
-      </div>
-
-      <!-- Pending Orders -->
-      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
-        <div>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pending Orders</span>
-          <h3 id="stat-pending" class="text-2xl font-black text-amber-600 mt-1">0</h3>
-          <span class="text-[11px] text-amber-600 font-semibold mt-0.5 block">Needs dispatch</span>
-        </div>
-        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
-          <i data-lucide="clock" class="w-6 h-6"></i>
-        </div>
-      </div>
-
-      <!-- Active Catalog Items -->
-      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
-        <div>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Active Flavours</span>
-          <h3 id="stat-products" class="text-2xl font-black text-slate-900 mt-1">0</h3>
-          <span class="text-[11px] text-slate-500 font-semibold mt-0.5 block">In stock & listed</span>
-        </div>
-        <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
-          <i data-lucide="layers" class="w-6 h-6"></i>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- TABS -->
-    <div class="flex border-b border-slate-200 gap-4 text-xs font-bold">
-      <button onclick="switchTab('orders')" id="tab-btn-orders" class="pb-3 border-b-2 border-rose-600 text-rose-600 flex items-center gap-1.5">
-        <i data-lucide="list-ordered" class="w-4 h-4"></i>
-        <span>Orders Management</span>
-      </button>
-      <button onclick="switchTab('products')" id="tab-btn-products" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
-        <i data-lucide="package" class="w-4 h-4"></i>
-        <span>Product Catalog</span>
-      </button>
-      <button onclick="switchTab('inquiries')" id="tab-btn-inquiries" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
-        <i data-lucide="message-square" class="w-4 h-4"></i>
-        <span>Inquiries & Reviews</span>
-      </button>
-    </div>
-
-    <!-- TAB 1: ORDERS MANAGEMENT -->
-    <div id="tab-orders" class="space-y-4">
-      
-      <!-- Filter Bar -->
-      <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
-        <div class="relative w-full sm:w-80">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
-          <input type="text" id="order-search" oninput="loadOrders()" placeholder="Search code, customer, phone..." class="w-full text-xs pl-9 pr-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-slate-50">
-        </div>
-
-        <div class="flex items-center gap-2 w-full sm:w-auto">
-          <span class="text-xs text-slate-500 font-semibold">Status:</span>
-          <select id="order-status-filter" onchange="loadOrders()" class="text-xs p-2 rounded-xl border border-slate-200 bg-white font-semibold text-slate-700">
-            <option value="all">All Orders</option>
-            <option value="Received">Received</option>
-            <option value="Preparing">Preparing</option>
-            <option value="Out for Delivery">Out for Delivery</option>
-            <option value="Delivered">Delivered</option>
-            <option value="Cancelled">Cancelled</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Orders Table Card -->
-      <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs">
-            <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
-              <tr>
-                <th class="py-3 px-4">Order Code</th>
-                <th class="py-3 px-4">Date</th>
-                <th class="py-3 px-4">Customer</th>
-                <th class="py-3 px-4">Location</th>
-                <th class="py-3 px-4">Items</th>
-                <th class="py-3 px-4">Total</th>
-                <th class="py-3 px-4">Status</th>
-                <th class="py-3 px-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="orders-table-body" class="divide-y divide-slate-100 font-medium">
-              <tr>
-                <td colspan="8" class="text-center py-10 text-slate-400">Loading orders...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- TAB 2: PRODUCTS CATALOG -->
-    <div id="tab-products" class="space-y-4 hidden">
-      <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs">
-            <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
-              <tr>
-                <th class="py-3 px-4">Image</th>
-                <th class="py-3 px-4">Product Name</th>
-                <th class="py-3 px-4">Flavour</th>
-                <th class="py-3 px-4">Price</th>
-                <th class="py-3 px-4">Stock</th>
-                <th class="py-3 px-4">Badge</th>
-                <th class="py-3 px-4">Status</th>
-                <th class="py-3 px-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="products-table-body" class="divide-y divide-slate-100 font-medium">
-              <!-- Populated by admin.js -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 3: INQUIRIES & REVIEWS -->
-    <div id="tab-inquiries" class="space-y-6 hidden">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <form onsubmit="handleAdminLogin(event)" class="space-y-3.5 text-left text-xs">
         
-        <!-- Inquiries List -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h3 class="font-bold text-slate-900 text-sm">Customer & Bulk Inquiries</h3>
-            <span id="inquiry-count-badge" class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[11px] font-bold">0</span>
-          </div>
-          <div id="inquiries-container" class="space-y-3 max-h-96 overflow-y-auto">
-            <!-- Populated by admin.js -->
+        <!-- Error Alert -->
+        <div id="login-error-alert" class="hidden p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold flex items-center gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
+          <span id="login-error-text">Invalid username or password</span>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Admin Username</label>
+          <input 
+            type="text" 
+            id="admin-user-input" 
+            required 
+            placeholder="Username" 
+            class="w-full p-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs font-semibold bg-slate-50">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Password</label>
+          <div class="relative">
+            <input 
+              type="password" 
+              id="admin-pass-input" 
+              required 
+              placeholder="••••••••••••" 
+              class="w-full p-3 pr-10 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs font-semibold bg-slate-50">
+            <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-3 text-slate-400 hover:text-slate-600">
+              <i id="pass-eye-icon" data-lucide="eye" class="w-4 h-4"></i>
+            </button>
           </div>
         </div>
 
-        <!-- Reviews List -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h3 class="font-bold text-slate-900 text-sm">Customer Reviews in Database</h3>
-            <span id="review-count-badge" class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[11px] font-bold">0</span>
+        <button 
+          type="submit" 
+          id="login-submit-btn" 
+          class="w-full py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-lg flex items-center justify-center gap-2 transition-transform active:scale-95">
+          <i data-lucide="lock" class="w-4 h-4 text-rose-400"></i>
+          <span>Access Admin Operations</span>
+        </button>
+
+      </form>
+
+      <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3">
+        <a href="/" class="hover:text-rose-600 transition-colors">← Back to Public Storefront</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AUTHENTICATED DASHBOARD WRAPPER -->
+  <div id="admin-dashboard-container" class="hidden flex-1 flex-col">
+
+    <!-- TOP HEADER -->
+    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        
+        <div class="flex items-center gap-3">
+          <a href="/" class="flex items-center gap-2 group">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-500 to-amber-400 flex items-center justify-center text-white font-bold shadow-md">
+              <i data-lucide="milk" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-lg font-black brand-font text-white">Pattwist</span>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 ml-1">Admin Ops</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3 text-xs">
+          
+          <!-- User Badge & Logout -->
+          <span class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 text-[11px] font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span id="active-admin-name">Pattwist_Ekura_Nkwan</span>
+          </span>
+
+          <a href="/" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 transition-colors" title="View Store">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span class="hidden sm:inline">Store</span>
+          </a>
+
+          <a href="/track" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 transition-colors" title="Order Tracker">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+            <span class="hidden sm:inline">Tracker</span>
+          </a>
+
+          <button onclick="seedSampleOrder()" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1.5 shadow-sm transition-all whitespace-nowrap">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+            <span class="hidden xs:inline">Sample Order</span>
+          </button>
+
+          <button onclick="handleAdminLogout()" class="px-2.5 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 font-bold flex items-center gap-1 transition-colors" title="Logout">
+            <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+            <span>Logout</span>
+          </button>
+
+        </div>
+
+      </div>
+    </header>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      
+      <!-- PAGE TITLE & CONTROLS -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-black text-slate-900">Dashboard & Operations</h1>
+          <p class="text-slate-500 text-xs sm:text-sm mt-0.5">Real-time orders, database inventory, and store performance.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="loadAllData()" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold flex items-center gap-2 shadow-sm transition-all">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span>Refresh Data</span>
+          </button>
+          <button onclick="openNewProductModal()" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold flex items-center gap-2 shadow-md shadow-rose-600/20 transition-all">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            <span>Add New Product</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- METRICS KPI CARDS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Total Revenue -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Sales</span>
+            <h3 id="stat-revenue" class="text-2xl font-black text-slate-900 mt-1">GH₵ 0.00</h3>
+            <span class="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 mt-0.5">
+              <i data-lucide="trending-up" class="w-3 h-3"></i> Active Database Orders
+            </span>
           </div>
-          <div id="reviews-container" class="space-y-3 max-h-96 overflow-y-auto">
-            <!-- Populated by admin.js -->
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <i data-lucide="coins" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <!-- Total Orders -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Orders</span>
+            <h3 id="stat-orders" class="text-2xl font-black text-slate-900 mt-1">0</h3>
+            <span class="text-[11px] text-slate-500 font-semibold mt-0.5 block">Lifetime orders</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
+            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <!-- Pending Orders -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pending Orders</span>
+            <h3 id="stat-pending" class="text-2xl font-black text-amber-600 mt-1">0</h3>
+            <span class="text-[11px] text-amber-600 font-semibold mt-0.5 block">Needs dispatch</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+            <i data-lucide="clock" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <!-- Active Catalog Items -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Active Flavours</span>
+            <h3 id="stat-products" class="text-2xl font-black text-slate-900 mt-1">0</h3>
+            <span class="text-[11px] text-slate-500 font-semibold mt-0.5 block">In stock & listed</span>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
+            <i data-lucide="layers" class="w-6 h-6"></i>
           </div>
         </div>
 
       </div>
-    </div>
 
-  </main>
+      <!-- TABS -->
+      <div class="flex border-b border-slate-200 gap-4 text-xs font-bold">
+        <button onclick="switchTab('orders')" id="tab-btn-orders" class="pb-3 border-b-2 border-rose-600 text-rose-600 flex items-center gap-1.5">
+          <i data-lucide="list-ordered" class="w-4 h-4"></i>
+          <span>Orders Management</span>
+        </button>
+        <button onclick="switchTab('products')" id="tab-btn-products" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
+          <i data-lucide="package" class="w-4 h-4"></i>
+          <span>Product Catalog</span>
+        </button>
+        <button onclick="switchTab('inquiries')" id="tab-btn-inquiries" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>Inquiries & Reviews</span>
+        </button>
+      </div>
 
-  <!-- MODAL: ADD / EDIT PRODUCT -->
-  <div id="product-modal" class="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <!-- TAB 1: ORDERS MANAGEMENT -->
+      <div id="tab-orders" class="space-y-4">
+        
+        <!-- Filter Bar -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+          <div class="relative w-full sm:w-80">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+            <input type="text" id="order-search" oninput="loadOrders()" placeholder="Search code, customer, phone..." class="w-full text-xs pl-9 pr-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-slate-50">
+          </div>
+
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <span class="text-xs text-slate-500 font-semibold">Status:</span>
+            <select id="order-status-filter" onchange="loadOrders()" class="text-xs p-2 rounded-xl border border-slate-200 bg-white font-semibold text-slate-700">
+              <option value="all">All Orders</option>
+              <option value="Received">Received</option>
+              <option value="Preparing">Preparing</option>
+              <option value="Out for Delivery">Out for Delivery</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Orders Table Card -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
+                <tr>
+                  <th class="py-3 px-4">Order Code</th>
+                  <th class="py-3 px-4">Date</th>
+                  <th class="py-3 px-4">Customer</th>
+                  <th class="py-3 px-4">Location</th>
+                  <th class="py-3 px-4">Items</th>
+                  <th class="py-3 px-4">Total</th>
+                  <th class="py-3 px-4">Status</th>
+                  <th class="py-3 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="orders-table-body" class="divide-y divide-slate-100 font-medium">
+                <tr>
+                  <td colspan="8" class="text-center py-10 text-slate-400">Loading orders...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TAB 2: PRODUCTS CATALOG -->
+      <div id="tab-products" class="space-y-4 hidden">
+        <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
+                <tr>
+                  <th class="py-3 px-4">Image</th>
+                  <th class="py-3 px-4">Product Name</th>
+                  <th class="py-3 px-4">Flavour</th>
+                  <th class="py-3 px-4">Price</th>
+                  <th class="py-3 px-4">Stock</th>
+                  <th class="py-3 px-4">Badge</th>
+                  <th class="py-3 px-4">Status</th>
+                  <th class="py-3 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="products-table-body" class="divide-y divide-slate-100 font-medium">
+                <!-- Populated by admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: INQUIRIES & REVIEWS -->
+      <div id="tab-inquiries" class="space-y-6 hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Inquiries List -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 class="font-bold text-slate-900 text-sm">Customer & Bulk Inquiries</h3>
+              <span id="inquiry-count-badge" class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[11px] font-bold">0</span>
+            </div>
+            <div id="inquiries-container" class="space-y-3 max-h-96 overflow-y-auto">
+              <!-- Populated by admin.js -->
+            </div>
+          </div>
+
+          <!-- Reviews List -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 class="font-bold text-slate-900 text-sm">Customer Reviews in Database</h3>
+              <span id="review-count-badge" class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[11px] font-bold">0</span>
+            </div>
+            <div id="reviews-container" class="space-y-3 max-h-96 overflow-y-auto">
+              <!-- Populated by admin.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- MODAL: ADD / EDIT PRODUCT (With Phone Photo Upload) -->
+  <div id="product-modal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-5 sm:p-6 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+      
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
         <h3 id="modal-product-title" class="font-bold text-slate-900 text-base">Add New Product</h3>
-        <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-700">
+        <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-700 p-1">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
@@ -285,13 +367,13 @@
         
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Product Name</label>
-          <input type="text" id="prod-name" required placeholder="e.g. Mango Fresh Yoghurt" class="w-full p-2.5 rounded-xl border border-slate-200">
+          <input type="text" id="prod-name" required placeholder="e.g. Banana Fresh Yoghurt" class="w-full p-2.5 rounded-xl border border-slate-200">
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Flavour</label>
-            <input type="text" id="prod-flavour" required placeholder="e.g. Mango" class="w-full p-2.5 rounded-xl border border-slate-200">
+            <input type="text" id="prod-flavour" required placeholder="e.g. Banana" class="w-full p-2.5 rounded-xl border border-slate-200">
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Price (GH₵)</label>
@@ -317,17 +399,71 @@
 
         <div>
           <label class="block font-semibold text-slate-700 mb-1">Description</label>
-          <textarea id="prod-desc" rows="3" placeholder="Description of the flavour and ingredients..." class="w-full p-2.5 rounded-xl border border-slate-200"></textarea>
+          <textarea id="prod-desc" rows="2" placeholder="Description of the flavour and ingredients..." class="w-full p-2.5 rounded-xl border border-slate-200"></textarea>
         </div>
 
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Image Path</label>
-          <input type="text" id="prod-image" value="assets/images/hero-combo-bottles.jpeg" class="w-full p-2.5 rounded-xl border border-slate-200">
+        <!-- NEW MOBILE PHOTO UPLOADER -->
+        <div class="space-y-1.5 pt-1">
+          <label class="block font-bold text-slate-800">Product Photo</label>
+          
+          <!-- Tap to Upload Box -->
+          <div 
+            onclick="document.getElementById('prod-file-input').click()" 
+            class="border-2 border-dashed border-rose-200 hover:border-rose-400 bg-rose-50/40 rounded-2xl p-4 text-center cursor-pointer transition-all active:scale-[0.98] group">
+            
+            <!-- Image Live Preview -->
+            <div id="image-preview-wrapper" class="hidden mb-2.5 relative max-w-[160px] mx-auto rounded-2xl overflow-hidden aspect-square border-2 border-rose-300 shadow-md">
+              <img id="image-preview-img" src="" alt="Selected product photo preview" class="w-full h-full object-cover">
+              <button 
+                type="button" 
+                onclick="event.stopPropagation(); removeSelectedImage()" 
+                class="absolute top-1.5 right-1.5 bg-black/70 hover:bg-black text-white p-1 rounded-full text-xs shadow"
+                title="Remove photo">
+                ✕
+              </button>
+            </div>
+
+            <!-- Upload Prompt -->
+            <div id="upload-prompt" class="space-y-1">
+              <div class="w-11 h-11 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-1 group-hover:scale-105 transition-transform">
+                <i data-lucide="camera" class="w-6 h-6"></i>
+              </div>
+              <p class="font-bold text-slate-800 text-xs sm:text-sm">Tap to Choose Photo from Phone</p>
+              <p class="text-[11px] text-slate-500">Take a photo or pick from gallery (auto-optimized)</p>
+            </div>
+
+            <!-- Native File Input supporting Mobile Camera & Gallery -->
+            <input 
+              type="file" 
+              id="prod-file-input" 
+              accept="image/*" 
+              class="hidden" 
+              onchange="handleImageFileSelect(event)">
+          </div>
+
+          <!-- Advanced Path / URL Accordion -->
+          <div class="pt-1">
+            <button 
+              type="button" 
+              onclick="toggleUrlInput()" 
+              class="text-[11px] font-bold text-rose-600 hover:underline flex items-center gap-1">
+              <span>+ Or enter custom image path / link</span>
+            </button>
+            <div id="url-input-container" class="hidden mt-2">
+              <input 
+                type="text" 
+                id="prod-image" 
+                value="assets/images/hero-combo-bottles.jpeg" 
+                placeholder="assets/images/... or https://..." 
+                class="w-full p-2.5 rounded-xl border border-slate-200 text-xs font-mono">
+            </div>
+          </div>
+
         </div>
 
-        <div class="pt-3 flex items-center justify-end gap-2">
-          <button type="button" onclick="closeProductModal()" class="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold">Cancel</button>
-          <button type="submit" class="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold shadow-md">Save Product</button>
+        <div class="pt-3 flex items-center justify-end gap-2 border-t border-slate-100">
+          <button type="button" onclick="closeProductModal()" class="px-4 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold text-xs">Cancel</button>
+          <button type="submit" id="save-product-btn" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md">Save Product</button>
         </div>
       </form>
     </div>
@@ -339,4 +475,3 @@
   </script>
 </body>
 </html>
-
