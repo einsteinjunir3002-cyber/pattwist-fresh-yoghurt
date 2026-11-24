@@ -1,0 +1,143 @@
+/* Custom styles for Pattwist Fresh Yoghurt */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap');
+
+:root {
+  --primary-pink: #f43f5e;
+  --primary-pink-soft: #ffe4e6;
+  --creamy-vanilla: #fef3c7;
+  --vanilla-gold: #d97706;
+  --fresh-green: #10b981;
+  --dark-text: #0f172a;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #1e293b;
+  background-color: #fcfbf9;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, .brand-font {
+  font-family: 'Outfit', sans-serif;
+}
+
+.script-font {
+  font-family: 'Caveat', cursive;
+}
+
+/* Glassmorphism effects */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(241, 245, 249, 0.8);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(243, 244, 246, 0.9);
+}
+
+/* Soft gradients */
+.gradient-hero-bg {
+  background: radial-gradient(circle at 10% 20%, rgba(254, 226, 226, 0.5) 0%, rgba(254, 243, 199, 0.45) 45%, rgba(255, 255, 255, 0) 80%);
+}
+
+.gradient-strawberry {
+  background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+}
+
+.gradient-vanilla {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+.gradient-combo {
+  background: linear-gradient(135deg, #fff1f2 0%, #fef3c7 100%);
+}
+
+.blob-glow {
+  position: absolute;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Custom shadows */
+.card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+}
+
+.card-shadow-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-shadow-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(225, 29, 72, 0.12), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Floating animation */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.floating-badge {
+  animation: softFloat 4s ease-in-out infinite;
+}
+
+.floating-badge-delayed {
+  animation: softFloat 5s ease-in-out 1.5s infinite;
+}
+
+/* Smooth badge ripple */
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.live-pulse {
+  animation: pulseDot 2s infinite;
+}
+
+/* Drawer transitions */
+.drawer-backdrop {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.drawer-panel {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+

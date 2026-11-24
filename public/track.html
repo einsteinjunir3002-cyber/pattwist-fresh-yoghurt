@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Fresh Yoghurt Order | Pattwist</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#F43F5E',
+              vanilla: '#FEF3C7',
+              mint: '#10B981',
+              dark: '#0F172A'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF9F5; }
+    h1, h2, h3, h4, .brand-font { font-family: 'Outfit', sans-serif; }
+  </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border-b border-slate-200/80 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-500 to-amber-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+          <i data-lucide="milk" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xl font-black brand-font text-slate-900 group-hover:text-rose-600 transition-colors">Pattwist</span>
+          <span class="text-[10px] uppercase font-extrabold tracking-wider px-1.5 py-0.5 rounded bg-rose-100 text-rose-700 ml-1">Live Tracker</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3 text-xs">
+        <a href="/" class="text-slate-600 hover:text-rose-600 font-semibold flex items-center gap-1">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back to Store</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-3xl w-full mx-auto px-4 py-8 sm:py-12 flex-1 space-y-6">
+    
+    <!-- Hero Box -->
+    <div class="text-center space-y-2">
+      <span class="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-3 py-1 rounded-full border border-rose-100">Order Status & Delivery</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900">Track Your Chilled Delivery</h1>
+      <p class="text-slate-600 text-xs sm:text-sm max-w-md mx-auto">Enter your Order Code (e.g. PAT-8291) or Phone Number to check real-time order and delivery progress.</p>
+    </div>
+
+    <!-- Search Form -->
+    <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200/80 shadow-md">
+      <form onsubmit="handleTrack(event)" class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+          <input 
+            type="text" 
+            id="track-input" 
+            placeholder="e.g. PAT-8291 or 0244123456" 
+            required
+            class="w-full pl-10 pr-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-slate-50 text-xs sm:text-sm font-semibold">
+        </div>
+        <button 
+          type="submit" 
+          class="px-6 py-3 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-rose-600/20 flex items-center justify-center gap-2 transition-all active:scale-95">
+          <i data-lucide="compass" class="w-4 h-4"></i>
+          <span>Track Order</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Error Alert Box -->
+    <div id="track-error" class="hidden p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+      <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
+      <span id="track-error-msg">No order found with that code.</span>
+    </div>
+
+    <!-- Tracking Result Card -->
+    <div id="track-result" class="hidden space-y-6">
+      
+      <!-- Status Stepper Card -->
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-md space-y-6">
+        
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Order Reference</span>
+            <h2 id="order-code-display" class="text-xl sm:text-2xl font-black text-rose-600">#PAT-0000</h2>
+          </div>
+          <div class="text-right">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Order Date</span>
+            <p id="order-date-display" class="text-xs font-semibold text-slate-700">-</p>
+          </div>
+        </div>
+
+        <!-- Visual 4-Step Progress Stepper -->
+        <div class="py-2">
+          <div class="grid grid-cols-4 gap-2 text-center relative">
+            
+            <!-- Step 1: Received -->
+            <div id="step-1" class="flex flex-col items-center space-y-2">
+              <div class="step-icon w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm bg-slate-100 text-slate-400 transition-colors">
+                <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[11px] font-bold text-slate-700">1. Received</span>
+            </div>
+
+            <!-- Step 2: Preparing -->
+            <div id="step-2" class="flex flex-col items-center space-y-2">
+              <div class="step-icon w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm bg-slate-100 text-slate-400 transition-colors">
+                <i data-lucide="snowflake" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[11px] font-bold text-slate-700">2. Chilling</span>
+            </div>
+
+            <!-- Step 3: Out for Delivery -->
+            <div id="step-3" class="flex flex-col items-center space-y-2">
+              <div class="step-icon w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm bg-slate-100 text-slate-400 transition-colors">
+                <i data-lucide="truck" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[11px] font-bold text-slate-700">3. In Transit</span>
+            </div>
+
+            <!-- Step 4: Delivered -->
+            <div id="step-4" class="flex flex-col items-center space-y-2">
+              <div class="step-icon w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm bg-slate-100 text-slate-400 transition-colors">
+                <i data-lucide="smile" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[11px] font-bold text-slate-700">4. Delivered</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Status Message Banner -->
+        <div id="status-message-banner" class="p-4 rounded-2xl bg-rose-50/70 border border-rose-100 text-xs flex items-center gap-3">
+          <div class="w-8 h-8 rounded-xl bg-rose-500 text-white flex items-center justify-center flex-shrink-0">
+            <i data-lucide="info" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h4 id="status-headline" class="font-bold text-slate-900">Your order has been recorded</h4>
+            <p id="status-detail" class="text-slate-600 mt-0.5">We are prepping your fresh bottles for delivery.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Order Details & Invoice Breakdown -->
+      <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-md space-y-6">
+        
+        <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+          <i data-lucide="receipt" class="w-4 h-4 text-rose-500"></i>
+          <span>Order Summary</span>
+        </h3>
+
+        <!-- Customer & Delivery Info -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+            <span class="font-bold text-slate-400 uppercase tracking-wider text-[10px]">Customer Details</span>
+            <p class="font-bold text-slate-800" id="cust-name">-</p>
+            <p class="text-slate-600" id="cust-phone">-</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+            <span class="font-bold text-slate-400 uppercase tracking-wider text-[10px]">Delivery Location</span>
+            <p class="font-bold text-slate-800" id="cust-loc">-</p>
+            <p class="text-slate-500 italic" id="cust-note"></p>
+          </div>
+        </div>
+
+        <!-- Items Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="border-b border-slate-200 text-slate-400 uppercase text-[10px] font-bold">
+              <tr>
+                <th class="py-2">Item</th>
+                <th class="py-2 text-center">Qty</th>
+                <th class="py-2 text-right">Price</th>
+                <th class="py-2 text-right">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="track-items-tbody" class="divide-y divide-slate-100">
+              <!-- Populated dynamically -->
+            </tbody>
+            <tfoot class="border-t-2 border-slate-200 font-black">
+              <tr>
+                <td colspan="3" class="py-3 text-slate-800 text-sm">Total Amount</td>
+                <td class="py-3 text-right text-rose-600 text-base" id="track-total">GH₵ 0.00</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- WhatsApp Help & Call Actions -->
+        <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+          <a 
+            id="wa-inquiry-btn" 
+            href="https://wa.me/233578330745" 
+            target="_blank" 
+            class="w-full sm:flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Ask Dispatcher on WhatsApp</span>
+          </a>
+          <a 
+            href="tel:0504875191" 
+            class="w-full sm:w-auto py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4 text-rose-500"></i>
+            <span>Call 0504875191</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-400">
+    <div class="max-w-4xl mx-auto px-4">
+      <p>&copy; 2026 Pattwist Fresh Yoghurt. Need help? Call 0504875191 or WhatsApp 0578330745.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Check URL parameters for ?code=...
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code');
+      if (code) {
+        document.getElementById('track-input').value = code;
+        lookupOrder(code);
+      } else {
+        const lastCode = localStorage.getItem('pattwist_last_order');
+        if (lastCode) {
+          document.getElementById('track-input').value = lastCode;
+          lookupOrder(lastCode);
+        }
+      }
+      lucide.createIcons();
+    });
+
+    function handleTrack(e) {
+      e.preventDefault();
+      const query = document.getElementById('track-input').value.trim();
+      if (!query) return;
+      lookupOrder(query);
+    }
+
+    async function lookupOrder(query) {
+      const errorEl = document.getElementById('track-error');
+      const resultEl = document.getElementById('track-result');
+      errorEl.classList.add('hidden');
+
+      try {
+        const res = await fetch(`/api/orders/track/${encodeURIComponent(query)}`);
+        const data = await res.json();
+
+        if (!data.success || !data.order) {
+          resultEl.classList.add('hidden');
+          errorEl.classList.remove('hidden');
+          document.getElementById('track-error-msg').textContent = data.error || 'No matching order found.';
+          return;
+        }
+
+        const o = data.order;
+        resultEl.classList.remove('hidden');
+
+        // Populate Details
+        document.getElementById('order-code-display').textContent = `#${o.order_code}`;
+        document.getElementById('order-date-display').textContent = new Date(o.created_at).toLocaleString('en-GB', {
+          day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+
+        document.getElementById('cust-name').textContent = o.customer_name;
+        document.getElementById('cust-phone').textContent = o.customer_phone;
+        document.getElementById('cust-loc').textContent = o.customer_location || 'Pickup / Contact Directly';
+        document.getElementById('cust-note').textContent = o.order_note ? `Note: "${o.order_note}"` : '';
+
+        // Populate Items
+        const tbody = document.getElementById('track-items-tbody');
+        tbody.innerHTML = (o.items || []).map(i => `
+          <tr class="py-2">
+            <td class="py-2 font-semibold text-slate-800">${i.product_name}</td>
+            <td class="py-2 text-center text-slate-600">${i.quantity}</td>
+            <td class="py-2 text-right text-slate-600">GH₵ ${parseFloat(i.unit_price).toFixed(2)}</td>
+            <td class="py-2 text-right font-bold text-slate-900">GH₵ ${parseFloat(i.subtotal).toFixed(2)}</td>
+          </tr>
+        `).join('');
+
+        document.getElementById('track-total').textContent = `GH₵ ${parseFloat(o.total_amount).toFixed(2)}`;
+
+        // Update Stepper
+        updateStepper(o.order_status);
+
+        // Update WhatsApp button with order reference
+        const waBtn = document.getElementById('wa-inquiry-btn');
+        waBtn.href = `https://wa.me/233578330745?text=${encodeURIComponent(`Hello Pattwist! I'm checking on my order #${o.order_code}.`)}`;
+
+        lucide.createIcons();
+      } catch (err) {
+        resultEl.classList.add('hidden');
+        errorEl.classList.remove('hidden');
+        document.getElementById('track-error-msg').textContent = `Network error: ${err.message}`;
+      }
+    }
+
+    function updateStepper(status) {
+      const steps = ['step-1', 'step-2', 'step-3', 'step-4'];
+      const headline = document.getElementById('status-headline');
+      const detail = document.getElementById('status-detail');
+
+      // Reset styles
+      steps.forEach(id => {
+        const icon = document.querySelector(`#${id} .step-icon`);
+        icon.className = 'step-icon w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm bg-slate-100 text-slate-400';
+      });
+
+      let activeStep = 1;
+
+      if (status === 'Received') {
+        activeStep = 1;
+        headline.textContent = 'Order Confirmed & Received';
+        detail.textContent = 'We have logged your order into our system and are queueing your bottles.';
+      } else if (status === 'Preparing') {
+        activeStep = 2;
+        headline.textContent = 'Chilling & Packaging in Progress';
+        detail.textContent = 'Your bottles are being inspected, sealed, and packed into cold storage.';
+      } else if (status === 'Out for Delivery') {
+        activeStep = 3;
+        headline.textContent = 'Out for Delivery!';
+        detail.textContent = 'Our dispatch rider is on the road heading to your delivery location.';
+      } else if (status === 'Delivered') {
+        activeStep = 4;
+        headline.textContent = 'Order Delivered! 🎉';
+        detail.textContent = 'Enjoy your delicious, ice-cold bottle of Pattwist Fresh Yoghurt!';
+      } else if (status === 'Cancelled') {
+        activeStep = 0;
+        headline.textContent = 'Order Cancelled';
+        detail.textContent = 'This order was cancelled. Please contact us if you need assistance.';
+      }
+
+      for (let i = 1; i <= activeStep; i++) {
+        const icon = document.querySelector(`#step-${i} .step-icon`);
+        if (icon) {
+          icon.className = 'step-icon w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm bg-rose-600 text-white shadow-md shadow-rose-600/30';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+

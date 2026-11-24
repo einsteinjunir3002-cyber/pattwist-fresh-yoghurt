@@ -15,7 +15,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static assets from project root
+// Serve static assets from public folder and project root
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname)));
 
 // Helper: Get Settings as Object
@@ -542,12 +543,22 @@ app.post('/api/admin/seed-sample-order', (req, res) => {
 // -------------------------------------------------------------
 // PAGE ROUTES
 // -------------------------------------------------------------
+function resolvePage(filename) {
+  const pubPath = path.join(__dirname, 'public', filename);
+  if (require('node:fs').existsSync(pubPath)) return pubPath;
+  return path.join(__dirname, filename);
+}
+
+app.get('/', (req, res) => {
+  res.sendFile(resolvePage('index.html'));
+});
+
 app.get('/track', (req, res) => {
-  res.sendFile(path.join(__dirname, 'track.html'));
+  res.sendFile(resolvePage('track.html'));
 });
 
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin.html'));
+  res.sendFile(resolvePage('admin.html'));
 });
 
 // Export app for serverless platforms (e.g. Vercel)
